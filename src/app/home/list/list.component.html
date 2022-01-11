@@ -1,0 +1,13 @@
+
+<div class="justify-start">
+  <app-item
+  *ngFor="let job of jobs"
+  [image]="job.images[0]?.url"
+  [title]="job.title"
+  [description]="job.description"
+  [companyName]="job.company_name"
+  [id]="job.job_id"
+  [place]="job.place"
+  [date]="job.publication_date"
+></app-item>
+</div>

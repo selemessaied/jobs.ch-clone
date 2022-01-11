@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "codechallenge-90427": {
+      "hosting": {
+        "codechallenge": [
+          "codechallenge-90427"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "codechallenge-90427"
+  }
+}

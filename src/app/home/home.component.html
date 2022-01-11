@@ -1,1 +1,9 @@
-<p>home works!</p>
+<ion-searchbar
+  mode="ios"
+  placeholder="Search"
+  [(ngModel)]="searchTerm"
+  (ionChange)="search($event)"
+></ion-searchbar>
+<ion-list style="background-color: white">
+  <app-list [jobs]="jobs"></app-list>
+</ion-list>

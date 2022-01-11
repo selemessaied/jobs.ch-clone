@@ -1,1 +1,24 @@
-<p>item works!</p>
+<ion-item
+  [routerLink]="['/', 'home', id]"
+  class="item-background-color transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:shadow-lg"
+  button
+  mode="ios"
+>
+  <ion-thumbnail slot="start">
+    <img
+      [src]="
+        image
+          ? image
+          : 'https://www.viewstorm.com/wp-content/uploads/2014/10/default-img.gif'
+      "
+    />
+  </ion-thumbnail>
+  <ion-label>
+    <div class="text-lg truncate">{{ title }}</div>
+    <div class="m-0">
+      <b>{{ companyName }}</b>
+    </div>
+    <div>{{ place }}</div>
+    <p>{{ date | date }}</p>
+  </ion-label>
+</ion-item>

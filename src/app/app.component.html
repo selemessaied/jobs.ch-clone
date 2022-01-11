@@ -1,1 +1,19 @@
-<router-outlet></router-outlet>
+<ion-content>
+  <ion-row>
+    <ion-col size-md="8" offset-md="2">
+      <ion-card class="card">
+        <ion-card-header>
+          <ion-card-title routerLink="/" class="hover:cursor-pointer">
+            <div class="flex gap-1">
+              <ion-icon name="search"></ion-icon>
+              <span class="text-3xl"><b>Fake</b> jobs.ch</span>
+            </div>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <router-outlet></router-outlet>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
