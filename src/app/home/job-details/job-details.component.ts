@@ -18,6 +18,22 @@ export class JobDetailsComponent implements OnInit {
     private http: HttpClient
   ) {}
 
+  /**
+   * Get job details id from route params
+   * @param id
+   * @returns {Promise<void>}
+   * @memberof JobDetailsComponent
+   * @description
+   * Get job details from jobs.ch API
+   * https://www.jobs.ch/api/v1/public/search?query=
+   * https://www.jobs.ch/api/v1/public/search?query=java
+   * https://www.jobs.ch/api/v1/public/search?query=java&location=Zürich
+   * https://www.jobs.ch/api/v1/public/search?query=java&location=Zürich&page=2
+   * https://www.jobs.ch/api/v1/public/search?query=java&location=Zürich&page=2&per_page=10
+   * https://www.jobs.ch/api/v1/public/search?query=java&location=Zürich&page=2&per_page=10&sort=date
+   * https://www.jobs.ch/api/v1/public/search?query=java&location=Zürich&page=2&per_page=10&sort=date&order=desc
+   *
+   */
   ngOnInit(): void {
     this.isLoading = true;
     this.route.paramMap.pipe(take(1)).subscribe((paramMap: any) => {
@@ -31,7 +47,6 @@ export class JobDetailsComponent implements OnInit {
         .pipe(take(1))
         .subscribe((data) => {
           this.jobDetails = data;
-          console.log(this.jobDetails);
         });
     });
   }

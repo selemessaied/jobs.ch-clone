@@ -4,6 +4,9 @@
       "hosting": {
         "codechallenge": [
           "codechallenge-90427"
+        ],
+        "docs": [
+          "docs-codechallenge-90427"
         ]
       }
     }
