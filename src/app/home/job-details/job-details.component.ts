@@ -43,7 +43,10 @@ export class JobDetailsComponent implements OnInit {
       }
       this.jobId = paramMap.get('id') || '';
       this.http
-        .get<any>('https://www.jobs.ch/api/v1/public/search/job/' + this.jobId)
+        .get<any>(
+          'https://cors-anywhere.herokuapp.com/https://www.jobs.ch/api/v1/public/search/job/' +
+            this.jobId
+        )
         .pipe(take(1))
         .subscribe((data) => {
           this.jobDetails = data;
