@@ -44,13 +44,12 @@ export class JobDetailsComponent implements OnInit {
       this.jobId = paramMap.get('id') || '';
       this.http
         .get<any>(
-          'https://cors-anywhere.herokuapp.com/https://www.jobs.ch/api/v1/public/search/job/' +
+          'https://dry-caverns-47411.herokuapp.com/https://www.jobs.ch/api/v1/public/search/job/' +
             this.jobId
         )
         .pipe(take(1))
         .subscribe((data) => {
           this.jobDetails = data;
-          console.log(data)
         });
     });
   }

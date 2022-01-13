@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.http
       .get<any>(
-        'https://cors-anywhere.herokuapp.com/https://www.jobs.ch/api/v1/public/search'
+        'https://dry-caverns-47411.herokuapp.com/https://www.jobs.ch/api/v1/public/search'
       )
       .pipe(take(1))
       .subscribe((data) => {
@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     let query = ev.detail.value;
     this.http
       .get<any>(
-        'https://cors-anywhere.herokuapp.com/https://www.jobs.ch/api/v1/public/search?query=' +
+        'https://dry-caverns-47411.herokuapp.com/https://www.jobs.ch/api/v1/public/search?query=' +
           query
       )
       .pipe(take(1))
