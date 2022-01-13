@@ -473,10 +473,14 @@ export class JobDetailsComponent implements OnInit {
       }
       this.jobId &#x3D; paramMap.get(&#x27;id&#x27;) || &#x27;&#x27;;
       this.http
-        .get&lt;any&gt;(&#x27;https://www.jobs.ch/api/v1/public/search/job/&#x27; + this.jobId)
+        .get&lt;any&gt;(
+          &#x27;https://cors-anywhere.herokuapp.com/https://www.jobs.ch/api/v1/public/search/job/&#x27; +
+            this.jobId
+        )
         .pipe(take(1))
         .subscribe((data) &#x3D;&gt; {
           this.jobDetails &#x3D; data;
+          console.log(data)
         });
     });
   }
@@ -486,9 +490,17 @@ export class JobDetailsComponent implements OnInit {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;div style&#x3D;&quot;text-align: center; margin: 15px&quot;&gt;
-  &lt;ion-button [href]&#x3D;&quot;jobDetails?.application_url&quot;&gt;
-    &lt;ion-label&gt;Apply&lt;/ion-label&gt;
-  &lt;/ion-button&gt;
+  &lt;h1&gt;{{ jobDetails?.title }}&lt;/h1&gt;
+  &lt;ng-container *ngIf&#x3D;&quot;jobDetails?.application_url; else email&quot;&gt;
+    &lt;ion-button [href]&#x3D;&quot;jobDetails?.application_url&quot;&gt;
+      &lt;ion-label&gt;Apply&lt;/ion-label&gt;
+    &lt;/ion-button&gt;
+  &lt;/ng-container&gt;
+  &lt;ng-template #email&gt;
+    &lt;ion-button [href]&#x3D;&quot;&#x27;mailto:&#x27; + jobDetails?.application_email&quot;&gt;
+      &lt;ion-label&gt;Email&lt;/ion-label&gt;
+    &lt;/ion-button&gt;
+  &lt;/ng-template&gt;
 &lt;/div&gt;
 
 &lt;div [innerHTML]&#x3D;&quot;jobDetails?.raw_template&quot;&gt;&lt;/div&gt;
@@ -527,7 +539,7 @@ export class JobDetailsComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div style="text-align: center; margin: 15px">  <ion-button [href]="jobDetails?.application_url">    <ion-label>Apply</ion-label>  </ion-button></div><div [innerHTML]="jobDetails?.raw_template"></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div style="text-align: center; margin: 15px">  <h1>{{ jobDetails?.title }}</h1>  <ng-container *ngIf="jobDetails?.application_url; else email">    <ion-button [href]="jobDetails?.application_url">      <ion-label>Apply</ion-label>    </ion-button>  </ng-container>  <ng-template #email>    <ion-button [href]="\'mailto:\' + jobDetails?.application_email">      <ion-label>Email</ion-label>    </ion-button>  </ng-template></div><div [innerHTML]="jobDetails?.raw_template"></div></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ItemComponent', 'selector': 'app-item'},{'name': 'JobDetailsComponent', 'selector': 'app-job-details'},{'name': 'ListComponent', 'selector': 'app-list'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'JobDetailsComponent'};
