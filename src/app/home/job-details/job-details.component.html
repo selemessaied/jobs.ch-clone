@@ -1,7 +1,15 @@
 <div style="text-align: center; margin: 15px">
-  <ion-button [href]="jobDetails?.application_url">
-    <ion-label>Apply</ion-label>
-  </ion-button>
+  <h1>{{ jobDetails?.title }}</h1>
+  <ng-container *ngIf="jobDetails?.application_url; else email">
+    <ion-button [href]="jobDetails?.application_url">
+      <ion-label>Apply</ion-label>
+    </ion-button>
+  </ng-container>
+  <ng-template #email>
+    <ion-button [href]="'mailto:' + jobDetails?.application_email">
+      <ion-label>Email</ion-label>
+    </ion-button>
+  </ng-template>
 </div>
 
 <div [innerHTML]="jobDetails?.raw_template"></div>

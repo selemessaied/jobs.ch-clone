@@ -50,6 +50,7 @@ export class JobDetailsComponent implements OnInit {
         .pipe(take(1))
         .subscribe((data) => {
           this.jobDetails = data;
+          console.log(data)
         });
     });
   }
