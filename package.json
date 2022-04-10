@@ -28,7 +28,7 @@
     "@compodoc/compodoc": "^1.1.18",
     "@ionic/angular": "^6.0.1",
     "@ngneat/tailwind": "^7.0.3",
-    "firebase": "^9.4.0",
+    "firebase": "^9.6.9",
     "rxfire": "^6.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
